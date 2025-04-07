@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>МДПС</title>
+    <title>mdps</title>
+
+    <link rel="stylesheet" href="css/style.css"></link>
 
     <script src="https://api-maps.yandex.ru/2.1?lang=ru_UA&apikey=d66fa902-dca1-4bcd-9837-95379df8782e" type="text/javascript"></script>
 </head>
 <body>
-    
-    <div id="myMap" style="width: 100vw; height: 98vh;"></div>
+    <div class=yandex_map id="myMap" style='height: 100%; width: 100%; top: 0px; left: 0px; position: absolute; z-index: 2000; cursor: url("https://api-maps.yandex.ru/2.1.79/out/release/images/cursor/grab.cur") 16 16, url("https://api-maps.yandex.ru/2.1.79/out/release/images/cursor/grab.cur"), move;'>
 
     <script>
         ymaps.ready(init);
@@ -21,5 +22,6 @@
                 });
         }
     </script>
+</div>
 </body>
 </html>
