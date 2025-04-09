@@ -18,8 +18,24 @@
             var myMap = new ymaps.Map ('myMap', {
                 center: [56.19, 44.00],
                 zoom: 10,
-                controls: ['geolocationControl', 'trafficControl']
+                controls: ['geolocationControl', 'trafficControl', 'zoomControl']
                 });
+            
+            myMap.events.add('click', function (e) {
+                var coords = e.get('coords');
+                var myPlacemark = new ymaps.Placemark(coords, {
+                    hintContent: 'Метка',
+                    balloonContent: 'Это метка, добавленная пользователем'
+                }, {
+                    iconLayout: 'default#image',
+                    iconImageHref: '/maps/doc/jsapi/2.0/dg/_images/sprite.png', // Или ваш собственный иконка
+                    iconImageSize: [20, 20],
+                    iconImageOffset: [-10, -10]
+                });
+        
+                myMap.geoObjects.add(myPlacemark);
+                });
+            
         }
     </script>
 </div>
