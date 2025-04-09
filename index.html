@@ -27,7 +27,10 @@
                     hintContent: 'Метка',
                     balloonContent: 'Это метка, добавленная пользователем'
                 }, {
-                    preset: 'twirl#blueStretchyIcon'
+                    iconLayout: 'default#image',
+                    iconImageHref: '/dps2.svg', // Или ваш собственный иконка
+                    iconImageSize: [48, 40],
+                    iconImageOffset: [-24, -40]
                 });
         
                 myMap.geoObjects.add(myPlacemark);
