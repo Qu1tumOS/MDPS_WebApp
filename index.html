@@ -18,7 +18,7 @@
             var myMap = new ymaps.Map ('myMap', {
                 center: [56.19, 44.00],
                 zoom: 10,
-                controls: ['geolocationControl', 'trafficControl']
+                controls: ['geolocationControl', 'trafficControl', 'zoomControl']
                 });
             
             myMap.events.add('click', function (e) {
@@ -28,7 +28,7 @@
                     balloonContent: 'Это метка, добавленная пользователем'
                 }, {
                     iconLayout: 'default#image',
-                    iconImageHref: '/dps2.svg', // Или ваш собственный иконка
+                    iconImageHref: '../dps2.svg', // Или ваш собственный иконка
                     iconImageSize: [48, 40],
                     iconImageOffset: [-24, -40]
                 });
