@@ -10,7 +10,7 @@
     <script src="https://api-maps.yandex.ru/2.1?lang=ru_UA&apikey=d66fa902-dca1-4bcd-9837-95379df8782e" type="text/javascript"></script>
 </head>
 <body>
-    <div class=yandex_map id="myMap" style='height: 100%; width: 100%; top: 0px; left: 0px; position: absolute; z-index: 2000; cursor: url("https://api-maps.yandex.ru/2.1.79/out/release/images/cursor/grab.cur") 16 16, url("https://api-maps.yandex.ru/2.1.79/out/release/images/cursor/grab.cur"), move;'>
+    <div class=yandex_map id="myMap" style='height: 700px; width: 1000px'>
 
     <script>
         ymaps.ready(init);
@@ -18,23 +18,48 @@
             var myMap = new ymaps.Map ('myMap', {
                 center: [56.19, 44.00],
                 zoom: 10,
-                controls: ['geolocationControl', 'trafficControl', 'zoomControl']
+                controls: ['geolocationControl', 'trafficControl']
                 });
             
-            myMap.events.add('click', function (e) {
-                var coords = e.get('coords');
-                var myPlacemark = new ymaps.Placemark(coords, {
-                    hintContent: 'Метка',
-                    balloonContent: 'Это метка, добавленная пользователем'
-                }, {
-                    iconLayout: 'default#image',
-                    iconImageHref: '../dps2.svg', // Или ваш собственный иконка
-                    iconImageSize: [48, 40],
-                    iconImageOffset: [-24, -40]
+                let placemark = null;
+                let coords = null;
+
+                // Кнопка для добавления метки
+                let addButton = document.createElement('button');
+                addButton.textContent = 'Добавить метку';
+                document.body.appendChild(addButton);
+
+                addButton.addEventListener('click', () => {
+                    if (placemark) {
+                        myMap.geoObjects.remove(placemark);
+                        placemark = null;
+                        coords = null;
+                        addButton.textContent = 'Добавить метку';
+                    }
+                    myMap.events.add('click', handleMapClick);
+                    addButton.textContent = 'Подтвердить';
                 });
-        
-                myMap.geoObjects.add(myPlacemark);
-                });
+
+                function handleMapClick(e) {
+                    coords = e.get('coords');
+                    myMap.events.remove('click', handleMapClick);
+                    addButton.textContent = 'Добавить метку'; // Возвращаем текст на кнопку
+                    // Покажем подтверждение
+                    if (confirm("Добавить метку в точку [" + coords[0].toFixed(6) + ", " + coords[1].toFixed(6) + "]?")) {
+                        placemark = new ymaps.Placemark(coords, {
+                            hintContent: 'Метка',
+                            balloonContent: 'тут стоят пидарасы с палкой'
+                        }, {
+                            //iconLayout: 'default#imageWithContent',
+                            //iconImageHref: '../dps.svg',
+                            //iconImageSize: [48, 40],
+                            //iconImageOffset: [-24, -40]
+                            preset: 'twirl#blueStretchyIcon'
+                        });
+                        myMap.geoObjects.add(placemark);
+                    }
+                }
+
             
         }
     </script>
