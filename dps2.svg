@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_Слой_1" data-name="Слой 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 49 41.99">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+        font-family: Phosphate-Solid, Phosphate;
+        font-size: 17.25px;
+      }
+
+      .cls-1, .cls-2, .cls-3 {
+        stroke: #1d1d1b;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-2 {
+        fill: #42c0ef;
+      }
+
+      .cls-3 {
+        fill: #e94649;
+      }
+    </style>
+  </defs>
+  <path class="cls-2" d="M29.29.5l-9.59,26.19-1.84,5.02-3.77-5.02h-4.18c-5.2,0-9.41-4.18-9.41-9.35v-7.47C.5,4.68,4.71.5,9.91.5h19.38Z"/>
+  <path class="cls-3" d="M48.5,9.86v7.47c0,5.17-4.22,9.35-9.42,9.35h-14.59v13.81l-6.63-8.8,1.84-5.02L29.29.5h9.79c5.2,0,9.42,4.18,9.42,9.36Z"/>
+  <text class="cls-1" transform="translate(7.02 17.89)"><tspan x="0" y="0">ДПС</tspan></text>
+</svg>
