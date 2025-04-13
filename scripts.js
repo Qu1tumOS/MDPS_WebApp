@@ -25,9 +25,6 @@ function init() {
             // Создаем временную метку для предпросмотра
             let centerCoords = myMap.getCenter();
             previewPlacemark = new ymaps.Placemark(centerCoords, {
-                hintContent: 'Предпросмотр метки',
-                balloonContent: 'Переместите карту для выбора позиции'
-            }, {
                 preset: 'twirl#blueStretchyIcon',
                 draggable: false
             });
