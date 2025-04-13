@@ -4,7 +4,7 @@ body {
 }
 
 #mapContainer {
-    background: black;
+    background: #1c1c1c;
     border-radius: 10px;
     height: 100%; 
     display: flex;
